@@ -86,5 +86,15 @@
         android:layout_height="wrap_content"
         android:text="Hitung BTU" />
 
+    <TextView
+        android:id="@+id/tHasil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Hasil kebutuhan pendingin ruangan anda akan muncul disini."
+        android:textAlignment="center"
+        android:textSize="10pt"
+        android:clickable="false"/>
+
 
 </LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/imgAC"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_weight="0.2"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_home" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:orientation="vertical"
+        android:weightSum="0.8">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/namaAC"
+            android:layout_weight="0.2"
+            android:text="Nama AC"
+            android:textSize="6pt"
+            android:layout_marginLeft="10dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/merkAC"
+            android:layout_weight="0.2"
+            android:text="Merk AC"
+            android:textSize="6pt"
+            android:layout_marginLeft="10dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tipeAC"
+            android:layout_weight="0.2"
+            android:text="Tipe AC"
+            android:textSize="6pt"
+            android:layout_marginLeft="10dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hargaAC"
+            android:layout_weight="0.2"
+            android:text="Harga AC"
+            android:textSize="6pt"
+            android:layout_marginLeft="10dp" />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
