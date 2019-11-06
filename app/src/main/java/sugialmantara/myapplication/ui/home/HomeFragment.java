@@ -14,22 +14,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
 import sugialmantara.myapplication.R;
 import sugialmantara.myapplication.ui.Rekomendasi.RekomendasiACFragment;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+
     EditText et_panjang, et_lebar, et_tinggi;
     Button butt_hitung;
     TextView tv_hasil;
     Integer epanjang, elebar, etinggi;
+    int hasil;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
         et_panjang = root.findViewById(R.id.e_panjang);
         et_lebar = root.findViewById(R.id.e_lebar);
@@ -45,7 +44,7 @@ public class HomeFragment extends Fragment {
             int elbr = Integer.parseInt(et_lebar.getText().toString());
             int etgg = Integer.parseInt(et_tinggi.getText().toString());
 
-            int hasil = epjg * elbr * etgg * 150;
+            hasil = epjg * elbr * etgg * 150;
             DecimalFormat decim = new DecimalFormat("#,###.##");
             tv_hasil.setText("Kebutuhan ruangan ");
             tv_hasil.append(decim.format(hasil )+" Btu/h, Klik disini untuk melihat rekomendasi produk.");
@@ -61,6 +60,9 @@ public class HomeFragment extends Fragment {
                FragmentTransaction ft = fm.beginTransaction();
                RekomendasiACFragment tf = new RekomendasiACFragment();
                ft.replace(R.id.nav_host_fragment, tf);
+               Bundle args = new Bundle();
+               args.putInt("hasil", hasil);
+               tf.setArguments(args);
                ft.commit();
            }
        });

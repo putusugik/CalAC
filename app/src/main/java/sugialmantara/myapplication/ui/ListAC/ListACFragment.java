@@ -34,7 +34,7 @@ public class ListACFragment extends Fragment {
     private RecyclerView recyclerView;
     private ListAdapter listAdapter;
     List<DataAC> data = new ArrayList<>();
-    private static String url_viewAC = "http://10.0.2.2/calac/select_listac.php";
+    private static String url_viewAC = "http://arismart.co.id/sugiklib/select_listac.php";
     public static final int CONN_TIMEOUT = 10000;
     public static final int CONN_READOUT = 15000;
 
