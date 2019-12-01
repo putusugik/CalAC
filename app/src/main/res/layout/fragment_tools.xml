@@ -10,5 +10,12 @@
         android:layout_height="match_parent"
         android:id="@+id/rlListACRekomen"/>
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Maaf, ruangan terlalu besar. Mungkin anda dapat memasang AC dengan tipe VRV atau SkyAir." />
+
 
 </LinearLayout>
