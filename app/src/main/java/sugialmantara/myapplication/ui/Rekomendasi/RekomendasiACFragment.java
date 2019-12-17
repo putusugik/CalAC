@@ -54,6 +54,7 @@ public class RekomendasiACFragment extends Fragment {
                              final ViewGroup container, Bundle savedInstanceState) {
         final View[] root = {inflater.inflate(R.layout.fragment_tools, container, false)};
         hasil = getArguments().getInt("hasil", -1);
+
         new viewRekomen().execute();
 
         return root[0];

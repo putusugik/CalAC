@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -21,6 +22,7 @@ public class HomeFragment extends Fragment {
 
 
     EditText et_panjang, et_lebar, et_tinggi;
+    String panjang, lebar, tinggi;
     Button butt_hitung;
     TextView tv_hasil;
     Integer epanjang, elebar, etinggi;
@@ -40,16 +42,28 @@ public class HomeFragment extends Fragment {
        butt_hitung.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-            int epjg = Integer.parseInt(et_panjang.getText().toString());
-            int elbr = Integer.parseInt(et_lebar.getText().toString());
-            int etgg = Integer.parseInt(et_tinggi.getText().toString());
-
-            hasil = epjg * elbr * etgg * 150;
-            DecimalFormat decim = new DecimalFormat("#,###.##");
-            tv_hasil.setText("Kebutuhan ruangan ");
-            tv_hasil.append(decim.format(hasil )+" Btu/h, Klik disini untuk melihat rekomendasi produk.");
-            tv_hasil.setEnabled(true);
-
+            panjang = et_panjang.getText().toString();
+            lebar = et_lebar.getText().toString();
+            tinggi = et_tinggi.getText().toString();
+            if (panjang.isEmpty() || lebar.isEmpty() || tinggi.isEmpty()){
+                Toast.makeText(getActivity(), "Masukan data belum lengkap", Toast.LENGTH_SHORT).show();
+            } else {
+                int epjg = Integer.parseInt(et_panjang.getText().toString());
+                int elbr = Integer.parseInt(et_lebar.getText().toString());
+                int etgg = Integer.parseInt(et_tinggi.getText().toString());
+                hasil = epjg * elbr * etgg * 150;
+                if (hasil < 4000){
+                    DecimalFormat decim = new DecimalFormat("#,###.##");
+                    tv_hasil.setText("Kebutuhan ruangan ");
+                    tv_hasil.append(decim.format(hasil )+" Btu/h, Minimal 4.000 btu/h.");
+                    tv_hasil.setEnabled(false);
+                }else {
+                    DecimalFormat decim = new DecimalFormat("#,###.##");
+                    tv_hasil.setText("Kebutuhan ruangan ");
+                    tv_hasil.append(decim.format(hasil )+" Btu/h, Klik disini untuk melihat rekomendasi produk.");
+                    tv_hasil.setEnabled(true);
+                }
+            }
            }
        });
 
